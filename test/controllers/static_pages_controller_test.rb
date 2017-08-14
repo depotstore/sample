@@ -4,8 +4,8 @@ class StaticPagesControllerTest < ActionDispatch::IntegrationTest
   def setup
     @base_line = 'Tutorial Sample App'
   end
-  
-  test "should get root" do
+
+  test("should get root") do
     get root_url
     assert_response :success
   end
