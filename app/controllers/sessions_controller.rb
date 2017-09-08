@@ -1,13 +1,15 @@
 class SessionsController < ApplicationController
   def new
+    # debugger
   end
 
   def create
+    # @user should be instance variable because of assign()
     @user = User.find_by(email: params[:sessions][:email].downcase)
     if @user && @user.authenticate(params[:sessions][:password])
       log_in @user
       params[:sessions][:remember_me] == '1' ? remember(@user) : forget(@user)
-      redirect_to @user
+      redirect_back_or @user
     else
       flash.now[:danger] = 'Invalid email/password combination'
       render 'new'
