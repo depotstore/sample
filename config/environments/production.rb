@@ -91,8 +91,8 @@ Rails.application.configure do
     port:           587,
     domain:         "46.188.127.158:80", #"domain.of.sender.net" gmail.com
     authentication: :plain,
-    user_name:      GMAIL_SMTP_USER,
-    password:       GMAIL_PASSWORD,
+    user_name:      'depotstoreinfo@gmail.com',
+    password:       'Store123',
     enable_starttls_auto: true
   }
 
