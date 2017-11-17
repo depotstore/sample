@@ -1,7 +1,7 @@
 <% provide(:title, 'Home') %>
 <!-- <%= %> -->
 <% if logged_in? %>
-  <%= render 'microposts/logged_in'%>
+  <%= render 'shared/logged_in'%>
 <% else %>
-  <%= render 'microposts/not_logged_in'%>
+  <%= render 'shared/not_logged_in'%>
 <% end %>

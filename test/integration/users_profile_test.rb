@@ -19,4 +19,15 @@ class UsersProfileTest < ActionDispatch::IntegrationTest
       assert_match micropost.content, response.body
     end
   end
+
+  test 'stats display on home page' do
+    get root_path
+    get login_path
+    post login_path, { params: { sessions: { email: @user.email,
+                                             password: 'password' } } }
+    get root_path
+    assert_select 'div.stats'
+    assert_match @user.following.count.to_s, response.body
+    assert_match @user.followers.count.to_s, response.body
+  end
 end
